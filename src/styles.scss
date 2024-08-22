@@ -1,1 +1,48 @@
 /* You can add global styles to this file, and also import other style files */
+@import "variables-and-mixins";
+@font-face {
+  font-family: "RedHatText";
+  src: url("./assets/fonts/static/RedHatText-Regular.ttf");
+  font-weight: normal;
+  font-style: normal;
+}
+
+@font-face {
+  font-family: "RedHatText";
+  src: url("./assets/fonts/static/RedHatText-Bold.ttf");
+  font-weight: bold;
+  font-style: normal;
+}
+
+@font-face {
+  font-family: "RedHatText";
+  src: url("./assets/fonts/static/RedHatText-SemiBold.ttf");
+  font-weight: 600;
+  font-style: normal;
+}
+
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+  font-family: "RedHatText";
+}
+
+html {
+  @media(max-width: 1080px){
+    font-size: 93.75%;
+  }
+
+  @media(max-width: 720px){
+    font-size: 87.5%;
+  }
+}
+
+body {
+  background-color: $rose50;
+  font-size: 1rem;
+}
+
+ul {
+  list-style: none;
+}
