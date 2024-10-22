@@ -1,0 +1,51 @@
+@import "variables-and-mixins";
+
+:host {
+  width: fit-content;
+  display: block;
+  margin-top: 1.5rem
+}
+
+.product-card__header {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+
+  .btn-add-to-cart {
+    margin-top: -1.4rem
+  }
+
+  img {
+    border-radius: 0.5rem;
+  }
+}
+
+.product-card__body {
+  margin-top: 1.25rem;
+}
+
+.product-card__category,
+.product-card__name,
+.product-card__price {
+  display: block;
+}
+
+.product-card__category {
+  color: $rose300;
+  font-size: 1rem;
+  font-weight: 300;
+}
+
+.product-card__name,
+.product-card__price {
+  font-size: 1.1rem;
+  font-weight: 600;
+}
+
+.product-card__name,
+.product-card__price {
+  margin-top: 0.15rem;
+}
+.product-card__price {
+  color: $brown1;
+}

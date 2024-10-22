@@ -1,0 +1,41 @@
+@import "variables-and-mixins";
+
+
+
+.products-list {
+  margin-top: 1.5rem;
+}
+
+
+.cart {
+  margin-top: 2rem;
+}
+
+@media(min-width: $tablet-width) {
+  .products-list {
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
+    column-gap: 1.25rem;
+    row-gap: 1.5rem;
+  }
+}
+
+@media(min-width: $laptop-width) {
+  :host {
+    display: flex;
+    gap: 2rem;
+  }
+  
+
+  .cart {
+    margin-top: 0;
+    width: 800px;
+    height: fit-content;
+  }
+}
+
+@media(min-width: $desktop-width) {
+  .products-list {
+    grid-template-columns: repeat(3, 1fr);
+  }
+}

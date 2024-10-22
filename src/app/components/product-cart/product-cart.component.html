@@ -1,0 +1,14 @@
+<div class="product-card__header">
+  <img [src]="product().image.mobile" [alt]="product().name">
+  <button emptyAddCartButton class="btn btn--primary btn-add-to-cart text--md text--bold"> 
+  </button>
+  <button selectedAddCartButton class="btn btn--primary btn-add-to-cart text--md text--bold"> 
+  </button>
+</div>
+
+<div class="product-card__body">
+  <span class="product-card__category">{{ product().category}}</span>
+  <strong class="product-card__name">{{ product().name}}</strong>
+  <strong class="product-card__price">{{ product().price | currency}}</strong>
+</div>
+

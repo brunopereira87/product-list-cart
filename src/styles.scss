@@ -40,9 +40,91 @@ html {
 
 body {
   background-color: $rose50;
-  font-size: 1rem;
+  font-size: $text-md;
 }
 
 ul {
   list-style: none;
+}
+
+h1 {
+  font-size: $text-lg;
+}
+
+img {
+  max-width: 100%;
+}
+
+.container {
+  padding: 2rem;
+  max-width: $desktop-width;
+}
+
+.text--xs {
+  font-size: $text-xs;
+}
+
+.text--sm {
+  font-size: $text-sm;
+}
+
+.text--md {
+  font-size: $text-md;
+}
+
+.text--md1 {
+  font-size: $text-md1;
+}
+
+.text--md2 {
+  font-size: $text-md2;
+}
+
+.text--lg {
+  font-size: $text-lg;
+}
+
+.text--lg1 {
+  font-size: $text-lg1;
+}
+
+.text--lg2 {
+  font-size: $text-lg2;
+}
+
+.text--regular {
+  font-weight: normal;
+}
+
+.text--semibold {
+  font-weight: 600;
+}
+
+.text--bold {
+  font-weight: bold;
+}
+
+.btn {
+  padding: 0.7rem 2rem;
+  border-radius: 2rem;
+}
+
+.btn--primary {
+  background-color: $rose50;
+  border: 1px solid $rose500;
+  color: $rose900;
+}
+
+@media(min-width: $laptop-width) {
+  .container {
+    padding: 3rem;
+  }
+}
+
+@media(min-width: $laptop-width) {
+  .container {
+    padding: 4rem;
+    margin-left: auto;
+    margin-right: auto;
+  }
 }

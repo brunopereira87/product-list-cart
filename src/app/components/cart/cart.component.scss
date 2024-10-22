@@ -1,0 +1,14 @@
+@import "variables-and-mixins";
+
+:host {
+  padding: 1.75rem 1.5rem;
+  border-radius: 10px;
+  background-color: $white;
+  display: block;
+}
+
+.cart__title {
+  color: $brown1;
+  font-weight: 700;
+  font-size: $text-md1;
+}

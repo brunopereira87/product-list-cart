@@ -1,0 +1,29 @@
+@import "variables-and-mixins";
+
+:host {
+  display: flex;
+  gap: 0.5rem;
+  align-items: center;
+
+  &:hover {
+    cursor: pointer;
+  }
+  &.btn--selected {
+    background-color: $brown1;
+    color: $white;
+    border: none;
+  }
+  i, span {
+    display: block;
+  }
+
+  i {
+    color: $brown1;
+    font-size: $text-md1;
+    font-weight: 300;
+  }
+
+  span {
+    font-weight: 600;
+  }
+}
