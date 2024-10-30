@@ -4,9 +4,14 @@ import { cartActions } from "./cart.actions";
 
 export const cartReducer = createReducer(
   cartInitialState,
-  on(cartActions.addProduct, (state, action) => {
+  on(cartActions.addCartItem, (state, action) => {
+    const cart = state.cart
     return {
-      ...state
+      ...state,
+      cart: {
+        cartItems: [...cart.cartItems, action.cartItem],
+        totalPrice: cart.totalPrice + action.cartItem.totalPriceProduct
+      }
     }
   })
 )
