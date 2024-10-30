@@ -1,11 +1,11 @@
 import { createAction, props } from "@ngrx/store";
-import { Product } from "../../models/product.model";
+import { CartItem } from "../../models/cart-item.model";
 
-const addProduct = createAction(
-  '[Product] Add Product',
-  props<{ product: Product}>()
+const addCartItem = createAction(
+  '[CartItem] Add CartItem',
+  props<{ cartItem: CartItem }>()
 )
 
 export const cartActions = {
-  addProduct
+  addCartItem
 }

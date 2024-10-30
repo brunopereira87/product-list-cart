@@ -1,8 +1,14 @@
 <div class="product-card__header">
   <img [src]="product().image.mobile" [alt]="product().name">
-  <button emptyAddCartButton class="btn btn--primary btn-add-to-cart text--md text--bold"> 
+  <button 
+    emptyAddCartButton
+    [product]="product()"
+    class="btn btn--primary btn-add-to-cart text--md text--bold"> 
   </button>
-  <button selectedAddCartButton class="btn btn--primary btn-add-to-cart text--md text--bold"> 
+  <button 
+    selectedAddCartButton
+    [qtyProducts]="2"
+    class="btn btn--primary btn-add-to-cart text--md text--bold"> 
   </button>
 </div>
 
@@ -11,4 +17,3 @@
   <strong class="product-card__name">{{ product().name}}</strong>
   <strong class="product-card__price">{{ product().price | currency}}</strong>
 </div>
-
