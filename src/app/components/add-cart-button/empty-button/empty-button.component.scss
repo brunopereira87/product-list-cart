@@ -1,13 +1,11 @@
 @import "variables-and-mixins";
 
-:host {
+button {
   display: flex;
   gap: 0.5rem;
   align-items: center;
 
-  &:hover {
-    cursor: pointer;
-  }
+
   &.btn--selected {
     background-color: $brown1;
     color: $white;

@@ -105,14 +105,26 @@ img {
 }
 
 .btn {
-  padding: 0.7rem 2rem;
+  height: 3rem;
+  width: 12rem;
+  display: flex;
+  justify-content: center;
+  align-items: center;
   border-radius: 2rem;
+  padding: 0.5rem 0.75rem;
+  cursor: pointer;
 }
 
 .btn--primary {
   background-color: $rose50;
   border: 1px solid $rose500;
   color: $rose900;
+}
+
+.btn--accent {
+  background-color: $brown1;
+  border: none;
+  color: $white;
 }
 
 @media(min-width: $laptop-width) {

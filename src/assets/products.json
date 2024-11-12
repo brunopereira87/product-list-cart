@@ -60,7 +60,7 @@
     "price": 4.00
   },
   {
-    "id": 5,
+    "id": 6,
     "image": {
       "thumbnail": "./assets/images/image-meringue-thumbnail.jpg",
       "mobile": "./assets/images/image-meringue-mobile.jpg",
@@ -72,7 +72,7 @@
     "price": 5.00
   },
   {
-    "id": 6,
+    "id": 7,
     "image": {
       "thumbnail": "./assets/images/image-cake-thumbnail.jpg",
       "mobile": "./assets/images/image-cake-mobile.jpg",
@@ -84,7 +84,7 @@
     "price": 4.50
   },
   {
-    "id": 7,
+    "id": 8,
     "image": {
       "thumbnail": "./assets/images/image-brownie-thumbnail.jpg",
       "mobile": "./assets/images/image-brownie-mobile.jpg",
@@ -96,7 +96,7 @@
     "price": 4.50
   },
   {
-    "id": 8,
+    "id": 9,
     "image": {
       "thumbnail": "./assets/images/image-panna-cotta-thumbnail.jpg",
       "mobile": "./assets/images/image-panna-cotta-mobile.jpg",

@@ -1,9 +1,11 @@
-import { Component, computed, inject, input } from '@angular/core';
+import { Component, computed, inject, input, OnInit } from '@angular/core';
 import { CurrencyPipe } from '@angular/common';
 import { Product } from '../../models/product.model';
 import { EmptyButtonComponent } from '../add-cart-button/empty-button/empty-button.component';
 import { SelectedButtonComponent } from '../add-cart-button/selected-button/selected-button.component';
 import { Store } from '@ngrx/store';
+import { getCartItems } from '../../states/cart/cart.selectors';
+import { CartItem } from '../../models/cart-item.model';
 
 @Component({
   selector: 'li[app-product-cart]',
@@ -16,10 +18,25 @@ import { Store } from '@ngrx/store';
   templateUrl: './product-cart.component.html',
   styleUrl: './product-cart.component.scss'
 })
-export class ProductCartComponent {
+export class ProductCartComponent implements OnInit {
   product = input.required<Product>();
-  productQty!:number;
   store = inject(Store);
+  cartItem!: CartItem;
+  productQty = 0;
   
+  ngOnInit(): void {
+    this.store.select(getCartItems).subscribe(items => {
+      const productCartItem = this.findItemInCart(this.product(), items);
+
+      if(productCartItem){
+        this.cartItem = productCartItem;
+      }
+    })
+  }
+
+  findItemInCart(product: Product, cartItems: CartItem[]) {
+    return cartItems.find(item => item.product.id === product.id)
+  }
+
   // imageThumbnail = computed<string>(() => `/assets/${}` )
 }

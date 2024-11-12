@@ -1,7 +1,16 @@
 import { createReducer, on } from "@ngrx/store";
 import { cartInitialState } from "./cart.state";
 import { cartActions } from "./cart.actions";
+import { Cart } from "../../models/cart.model";
+import { CartItem } from "../../models/cart-item.model";
 
+function getCartIndex(stateCart: Cart, productId: number): number {
+  const cart: Cart = JSON.parse(JSON.stringify(stateCart))
+    const cartItems = cart.cartItems
+    const cartItemIndex = cartItems.findIndex( item => item.product.id === productId)
+
+    return cartItemIndex;
+}
 export const cartReducer = createReducer(
   cartInitialState,
   on(cartActions.addCartItem, (state, action) => {
@@ -10,8 +19,53 @@ export const cartReducer = createReducer(
       ...state,
       cart: {
         cartItems: [...cart.cartItems, action.cartItem],
-        totalPrice: cart.totalPrice + action.cartItem.totalPriceProduct
+        totalPrice: cart.totalPrice + action.cartItem.totalPriceProduct,
+        totalProductsQty: cart.totalProductsQty + action.cartItem.totalProductQty
       }
+    }
+  }),
+
+  on(cartActions.incrementProductOnCartItem, (state, action) =>{
+    const cart = JSON.parse(JSON.stringify(state.cart)) as Cart
+    const cartItems = cart.cartItems
+    const cartItemIndex = cartItems.findIndex( item => item.product.id === action.productId)
+    
+    if(cartItemIndex >= 0) {
+      const newCartItem = JSON.parse(JSON.stringify(cartItems[cartItemIndex])) as CartItem
+      
+      newCartItem.totalProductQty++;
+      newCartItem.totalPriceProduct += newCartItem.product.price;
+
+      cartItems[cartItemIndex] = newCartItem;
+      cart.totalProductsQty++
+      cart.totalPrice += newCartItem.product.price;
+    }
+    return {
+      ...state,
+      cart: { ...cart, cartItems }
+    }
+  }),
+
+  on(cartActions.decrementProductOnCartItem, (state, action) =>{
+    const cart = JSON.parse(JSON.stringify(state.cart)) as Cart
+    const cartItems = cart.cartItems
+    const cartItemIndex = cartItems.findIndex( item => item.product.id === action.productId)
+    
+    if((cartItemIndex >= 0) && (cartItems[cartItemIndex].totalProductQty > 1)) {
+      const newCartItem = JSON.parse(JSON.stringify(cartItems[cartItemIndex]))
+      newCartItem.totalProductQty--;
+
+      cartItems[cartItemIndex] = newCartItem
+      newCartItem.totalPriceProduct -= newCartItem.product.price;
+
+      cartItems[cartItemIndex] = newCartItem;
+      cart.totalProductsQty--
+      cart.totalPrice -= newCartItem.product.price;
+    }
+    
+    return {
+      ...state,
+      cart: { ...cart }
     }
   })
 )

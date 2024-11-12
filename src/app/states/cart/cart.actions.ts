@@ -6,6 +6,17 @@ const addCartItem = createAction(
   props<{ cartItem: CartItem }>()
 )
 
+const incrementProductOnCartItem = createAction(
+  '[CartItem] Increment Product Quantity on CartItem',
+  props<{ productId:number }>()
+)
+
+const decrementProductOnCartItem = createAction(
+  '[CartItem] Decrement Product Quantity on CartItem',
+  props<{ productId:number }>()
+)
 export const cartActions = {
-  addCartItem
+  addCartItem,
+  incrementProductOnCartItem,
+  decrementProductOnCartItem
 }

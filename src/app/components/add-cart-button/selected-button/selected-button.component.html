@@ -1,7 +1,18 @@
-<i class="material-symbols-outlined">
-  remove
-</i>
-<span>{{ qtyProducts() }}</span>
-<i class="material-symbols-outlined">
-  add
-</i>
+
+
+<button 
+  class="btn btn--accent text--md text--bold selected-button">
+  <button class="icon-container" (click)="onSubtractClick()">
+    <i class="material-symbols-outlined">
+      remove
+    </i>
+  </button>
+
+  <span>{{ cartItem()?.totalProductQty || 0 }}</span>
+
+  <button class="icon-container" (click)="onAddClick()">
+    <i class="material-symbols-outlined">
+      add
+    </i>
+  </button>
+</button>

@@ -6,7 +6,7 @@ import { Store } from '@ngrx/store';
 import { cartActions } from '../../../states/cart/cart.actions';
 
 @Component({
-  selector: 'button[emptyAddCartButton]',
+  selector: 'app-empty-add-cart-button',
   standalone: true,
   imports: [],
   templateUrl: './empty-button.component.html',

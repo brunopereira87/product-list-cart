@@ -1,15 +1,15 @@
 <div class="product-card__header">
   <img [src]="product().image.mobile" [alt]="product().name">
-  <button 
-    emptyAddCartButton
-    [product]="product()"
-    class="btn btn--primary btn-add-to-cart text--md text--bold"> 
-  </button>
-  <button 
-    selectedAddCartButton
-    [qtyProducts]="2"
-    class="btn btn--primary btn-add-to-cart text--md text--bold"> 
-  </button>
+  
+  @if (cartItem) {
+    <app-selected-add-cart-button [cartItem]="cartItem" class="btn-add-to-cart">
+    </app-selected-add-cart-button>
+  } @else {
+    <app-empty-add-cart-button [product]="product()" class="btn-add-to-cart">
+    </app-empty-add-cart-button>
+  }
+  
+  <!-- <span>{{productQty()}}</span> -->
 </div>
 
 <div class="product-card__body">
