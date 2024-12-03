@@ -1,7 +1,7 @@
 <h2 class="cart__title">Your Cart({{ cart().totalProductsQty}})</h2>
 
 @if(cart().totalProductsQty > 0) {
-  <app-empty-card></app-empty-card>
+  <app-cart-item-list [cart]="cart()"></app-cart-item-list>
 } @else {
-  <app-cart-item-list></app-cart-item-list>
+  <app-empty-card></app-empty-card>
 }

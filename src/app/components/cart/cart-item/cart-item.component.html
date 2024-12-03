@@ -1,1 +1,13 @@
-<p>cart-item works!</p>
+<div class="cart-item--info">
+  <strong class="prodcut--name">{{ cartItem()?.product?.name }}</strong>
+  <div class="product--values">
+    <strong class="product--qty">{{ cartItem()?.totalProductQty }}x</strong>
+    <span class="product--single-price">&#64; {{ cartItem()?.product?.price | currency }}</span>
+    <strong class="product--total-price">{{ cartItem()?.totalPriceProduct | currency }}</strong>
+  </div>
+</div>
+<button class="remove-product-button">
+  <i class="material-symbols-outlined">
+    cancel
+  </i>
+</button>

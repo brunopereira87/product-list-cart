@@ -1,1 +1,4 @@
-<p>cart-item-list works!</p>
+
+@for(cartItem of cart().cartItems; track cartItem.product.id) {
+  <app-cart-item [cartItem]="cartItem"></app-cart-item>
+}

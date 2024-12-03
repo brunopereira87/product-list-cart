@@ -33,7 +33,7 @@
 .product-card__category {
   color: $rose300;
   font-size: 1rem;
-  font-weight: 300;
+  font-weight: 600;
 }
 
 .product-card__name,
@@ -48,4 +48,8 @@
 }
 .product-card__price {
   color: $brown1;
+}
+
+.product-card__name {
+  color: $rose900;
 }
