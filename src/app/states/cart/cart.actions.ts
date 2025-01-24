@@ -1,6 +1,9 @@
 import { createAction, props } from "@ngrx/store";
 import { CartItem } from "../../models/cart-item.model";
 
+const fetchCart = createAction(
+  '[Cart] Fetch Cart'
+)
 const addCartItem = createAction(
   '[CartItem] Add CartItem',
   props<{ cartItem: CartItem }>()
@@ -16,6 +19,7 @@ const decrementProductOnCartItem = createAction(
   props<{ productId:number }>()
 )
 export const cartActions = {
+  fetchCart,
   addCartItem,
   incrementProductOnCartItem,
   decrementProductOnCartItem

@@ -12,3 +12,41 @@
   font-weight: 700;
   font-size: $text-md1;
 }
+
+.order-total {
+  margin: 1.5rem 0;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  span {
+    color: $rose500;
+  }
+
+  strong {
+    font-size: $text-md1;
+  }
+}
+
+.carbon-neutral {
+  display: flex;
+  justify-content: center;
+  padding: 1rem;
+  background-color: $rose50;
+
+  img {
+    margin-right: 0.5rem;
+  }
+
+  p {
+    color: $rose900;
+  }
+}
+
+.confirm-order-button {
+  margin-top: 1.5rem;
+  width: 100%;
+  transition: all 0.5s;
+  &:hover {
+    background-color: darken($brown1, 20%);    
+  }
+}

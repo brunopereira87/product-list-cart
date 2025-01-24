@@ -6,6 +6,8 @@ import { provideHttpClient } from '@angular/common/http';
 import { provideStore } from '@ngrx/store';
 import { appReducers } from './states/app.reducers';
 import { provideStoreDevtools } from '@ngrx/store-devtools';
+import { provideEffects } from '@ngrx/effects';
+import { saveCartToStorageEffect } from './states/cart/cart.effects';
 
 export const appConfig: ApplicationConfig = {
   providers: [
@@ -14,8 +16,12 @@ export const appConfig: ApplicationConfig = {
     provideHttpClient(),
     provideStore(appReducers),
     provideStoreDevtools({
-      maxAge: 25,
-      logOnly: !isDevMode()
+        maxAge: 25,
+        logOnly: !isDevMode()
+    }),
+    provideEffects({
+      saveCartToStorageEffect
     })
-]//
+] //
+//
 };

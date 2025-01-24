@@ -5,12 +5,11 @@ button {
   gap: 0.5rem;
   align-items: center;
 
-
-  &.btn--selected {
-    background-color: $brown1;
-    color: $white;
-    border: none;
+    
+  &:hover {
+    color: $brown1;
   }
+
   i, span {
     display: block;
   }

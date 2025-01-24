@@ -5,14 +5,16 @@ import { Cart } from '../../models/cart.model';
 import { Store } from '@ngrx/store';
 import { getCart } from '../../states/cart/cart.selectors';
 import { CartItemListComponent } from './cart-item-list/cart-item-list.component';
+import { CurrencyPipe } from '@angular/common';
 
 @Component({
   selector: 'app-cart',
   standalone: true,
   imports: [
-    CartItemComponent,
+  CartItemComponent,
     EmptyCardComponent,
-    CartItemListComponent
+    CartItemListComponent,
+    CurrencyPipe
   ],
   templateUrl: './cart.component.html',
   styleUrl: './cart.component.scss'

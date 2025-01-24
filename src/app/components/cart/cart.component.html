@@ -1,7 +1,18 @@
-<h2 class="cart__title">Your Cart({{ cart().totalProductsQty}})</h2>
+<h2 class="cart__title">Your Cart ({{ cart().totalProductsQty}})</h2>
 
 @if(cart().totalProductsQty > 0) {
   <app-cart-item-list [cart]="cart()"></app-cart-item-list>
+  <div class="order-total">
+    <span>Order Total</span>
+    <strong>{{ cart().totalPrice | currency}}</strong>
+  </div>
+  <div class="carbon-neutral">
+    <img src="/assets/images/icon-carbon-neutral.svg" alt="carbon-neutral icon" />
+    <p>
+      This is a <strong>carbon-neutral</strong> delivery
+    </p>
+  </div>
+  <button class="confirm-order-button btn btn--accent text--md text--semibold">Confirm Order</button>
 } @else {
   <app-empty-card></app-empty-card>
 }
