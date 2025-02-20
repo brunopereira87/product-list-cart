@@ -4,7 +4,7 @@ export type ModalState = {
   };
 }
 
-export const initModalState: ModalState = {
+export const modalInitialState: ModalState = {
   confirmOrderModal: {
     open: false
   }
