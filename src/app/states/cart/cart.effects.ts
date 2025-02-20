@@ -10,13 +10,14 @@ import { CartService } from "../../services/cart.service";
 const { 
   addCartItem, 
   incrementProductOnCartItem, 
-  decrementProductOnCartItem 
+  decrementProductOnCartItem,
+  removeCartItem
 } = cartActions;
 
 export const saveCartToStorageEffect = createEffect(
   (actions$ = inject(Actions), store = inject(Store), cartService = inject(CartService)) => {
     return actions$.pipe(
-      ofType(addCartItem, incrementProductOnCartItem, decrementProductOnCartItem),
+      ofType(addCartItem, incrementProductOnCartItem, decrementProductOnCartItem, removeCartItem),
       withLatestFrom(store.select(getCart)),
       switchMap(([actions, cart]) => from(cartService.saveCartStorage(cart)))
     )

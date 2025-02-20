@@ -1,4 +1,4 @@
-@import "variables-and-mixins";
+@use "variables";
 
 .selected-button {
   justify-content: space-between;
@@ -7,8 +7,8 @@
 .icon-container {
   background: transparent;
   display: flex;
-  color: $white;
-  border: 1px solid $white;
+  color: variables.$white;
+  border: 1px solid variables.$white;
   border-radius: 50%;
   width: 28px;
   height: 28px;
@@ -17,7 +17,7 @@
   cursor: pointer;
   
   &:hover {
-    background-color: $white;
-    color: $brown1;
+    background-color: variables.$white;
+    color: variables.$brown1;
   }
 }

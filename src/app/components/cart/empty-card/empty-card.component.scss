@@ -1,4 +1,4 @@
-@import "variables-and-mixins";
+@use "variables";
 
 .empty-cart-item {
   display: flex;
@@ -13,7 +13,7 @@
 
   strong {
     display: block;
-    color: $rose400;
-    font-size: $text-md;
+    color: variables.$rose400;
+    font-size: variables.$text-md;
   }
 }

@@ -1,28 +1,28 @@
-@import "variables-and-mixins";
+@use "variables";
 
 :host {
   display: flex;
   align-items: center;
   justify-content: space-between;
   padding: 1rem 0;
-  border-bottom: 1px solid $rose100;
+  border-bottom: 1px solid variables.$rose100;
 }
 
 .prodcut--name {
-  color: $rose900;
+  color: variables.$rose900;
 }
 .product--values {
   display: flex;
   margin-top: 0.5rem;
 
   .product--qty {
-    color: $brown1;
+    color: variables.$brown1;
     margin-right: 1rem;
   }
   
   .product--single-price,
   .product--total-price {
-    color: $rose300;
+    color: variables.$rose300;
   }
 
   .product--total-price {
@@ -34,6 +34,6 @@
 .remove-product-button {
   border: none;
   background: none;
-  color: $rose300;
+  color: variables.$rose300;
   cursor: pointer;
 }

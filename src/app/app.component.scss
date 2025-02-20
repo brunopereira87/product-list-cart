@@ -1,6 +1,6 @@
-@import "variables-and-mixins";
+@use "variables";
 
 h1 {
-  color: $rose900;
+  color: variables.$rose900;
 }
 

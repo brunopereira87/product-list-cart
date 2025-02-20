@@ -1,16 +1,16 @@
-@import "variables-and-mixins";
+@use "variables";
 
 :host {
   padding: 1.75rem 1.5rem;
   border-radius: 10px;
-  background-color: $white;
+  background-color: variables.$white;
   display: block;
 }
 
 .cart__title {
-  color: $brown1;
+  color: variables.$brown1;
   font-weight: 700;
-  font-size: $text-md1;
+  font-size: variables.$text-md1;
 }
 
 .order-total {
@@ -19,11 +19,11 @@
   justify-content: space-between;
   align-items: center;
   span {
-    color: $rose500;
+    color: variables.$rose500;
   }
 
   strong {
-    font-size: $text-md1;
+    font-size: variables.$text-md1;
   }
 }
 
@@ -31,14 +31,14 @@
   display: flex;
   justify-content: center;
   padding: 1rem;
-  background-color: $rose50;
+  background-color: variables.$rose50;
 
   img {
     margin-right: 0.5rem;
   }
 
   p {
-    color: $rose900;
+    color: variables.$rose900;
   }
 }
 
@@ -47,6 +47,6 @@
   width: 100%;
   transition: all 0.5s;
   &:hover {
-    background-color: darken($brown1, 20%);    
+    background-color: darken(variables.$brown1, 20%);    
   }
 }

@@ -1,5 +1,5 @@
 /* You can add global styles to this file, and also import other style files */
-@import "variables-and-mixins";
+@use "variables";
 @font-face {
   font-family: "RedHatText";
   src: url("./assets/fonts/static/RedHatText-Regular.ttf");
@@ -39,8 +39,8 @@ html {
 }
 
 body {
-  background-color: $rose50;
-  font-size: $text-md;
+  background-color: variables.$rose50;
+  font-size: variables.$text-md;
 }
 
 ul {
@@ -48,7 +48,7 @@ ul {
 }
 
 h1 {
-  font-size: $text-lg;
+  font-size: variables.$text-lg;
 }
 
 img {
@@ -57,39 +57,39 @@ img {
 
 .container {
   padding: 2rem;
-  max-width: $desktop-width;
+  max-width: variables.$desktop-width;
 }
 
 .text--xs {
-  font-size: $text-xs;
+  font-size: variables.$text-xs;
 }
 
 .text--sm {
-  font-size: $text-sm;
+  font-size: variables.$text-sm;
 }
 
 .text--md {
-  font-size: $text-md;
+  font-size: variables.$text-md;
 }
 
 .text--md1 {
-  font-size: $text-md1;
+  font-size: variables.$text-md1;
 }
 
 .text--md2 {
-  font-size: $text-md2;
+  font-size: variables.$text-md2;
 }
 
 .text--lg {
-  font-size: $text-lg;
+  font-size: variables.$text-lg;
 }
 
 .text--lg1 {
-  font-size: $text-lg1;
+  font-size: variables.$text-lg1;
 }
 
 .text--lg2 {
-  font-size: $text-lg2;
+  font-size: variables.$text-lg2;
 }
 
 .text--regular {
@@ -116,24 +116,24 @@ img {
 }
 
 .btn--primary {
-  background-color: $rose50;
-  border: 1px solid $rose500;
-  color: $rose900;
+  background-color: variables.$rose50;
+  border: 1px solid variables.$rose500;
+  color: variables.$rose900;
 }
 
 .btn--accent {
-  background-color: $brown1;
+  background-color: variables.$brown1;
   border: none;
-  color: $white;
+  color: variables.$white;
 }
 
-@media(min-width: $laptop-width) {
+@media(min-width: variables.$laptop-width) {
   .container {
     padding: 3rem;
   }
 }
 
-@media(min-width: $laptop-width) {
+@media(min-width: variables.$laptop-width) {
   .container {
     padding: 4rem;
     margin-left: auto;

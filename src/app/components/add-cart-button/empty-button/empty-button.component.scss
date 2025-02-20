@@ -1,4 +1,4 @@
-@import "variables-and-mixins";
+@use "variables";
 
 button {
   display: flex;
@@ -7,7 +7,7 @@ button {
 
     
   &:hover {
-    color: $brown1;
+    color: variables.$brown1;
   }
 
   i, span {
@@ -15,8 +15,8 @@ button {
   }
 
   i {
-    color: $brown1;
-    font-size: $text-md1;
+    color: variables.$brown1;
+    font-size: variables.$text-md1;
     font-weight: 300;
   }
 

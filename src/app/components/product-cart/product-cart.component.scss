@@ -1,4 +1,4 @@
-@import "variables-and-mixins";
+@use "variables";
 
 :host {
   width: fit-content;
@@ -31,7 +31,7 @@
 }
 
 .product-card__category {
-  color: $rose300;
+  color: variables.$rose300;
   font-size: 1rem;
   font-weight: 600;
 }
@@ -47,9 +47,9 @@
   margin-top: 0.15rem;
 }
 .product-card__price {
-  color: $brown1;
+  color: variables.$brown1;
 }
 
 .product-card__name {
-  color: $rose900;
+  color: variables.$rose900;
 }

@@ -6,7 +6,7 @@
     <strong class="product--total-price">{{ cartItem()?.totalPriceProduct | currency }}</strong>
   </div>
 </div>
-<button class="remove-product-button">
+<button class="remove-product-button" (click)="removeItem()">
   <i class="material-symbols-outlined">
     cancel
   </i>

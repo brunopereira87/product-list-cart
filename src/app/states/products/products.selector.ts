@@ -6,7 +6,6 @@ const selectProductsState = createFeatureSelector<ProductState>('products');
 export const getProducts = createSelector(
   selectProductsState,
   (state: ProductState) => {
-    console.log(state)
     return state.products
   }
 )

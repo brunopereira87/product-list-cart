@@ -1,6 +1,8 @@
-import { Component, input } from '@angular/core';
+import { Component, inject, input } from '@angular/core';
 import { CartItem } from '../../../models/cart-item.model';
 import { CurrencyPipe } from '@angular/common';
+import { Store } from '@ngrx/store';
+import { cartActions } from '../../../states/cart/cart.actions';
 
 @Component({
   selector: 'app-cart-item',
@@ -13,4 +15,12 @@ import { CurrencyPipe } from '@angular/common';
 })
 export class CartItemComponent {
   cartItem = input<CartItem>()
+  store = inject(Store)
+  removeItem(){
+    const item = this.cartItem();
+    
+    if(item){
+      this.store.dispatch(cartActions.removeCartItem({ productId: item.product.id}))
+    }
+  }
 }

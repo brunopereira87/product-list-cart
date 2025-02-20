@@ -27,16 +27,11 @@ export class ProductCartComponent implements OnInit {
   ngOnInit(): void {
     this.store.select(getCartItems).subscribe(items => {
       const productCartItem = this.findItemInCart(this.product(), items);
-
-      if(productCartItem){
-        this.cartItem = productCartItem;
-      }
+      this.cartItem = productCartItem as CartItem;
     })
   }
 
   findItemInCart(product: Product, cartItems: CartItem[]) {
     return cartItems.find(item => item.product.id === product.id)
   }
-
-  // imageThumbnail = computed<string>(() => `/assets/${}` )
 }

@@ -7,9 +7,13 @@ import { CartItem } from "../../models/cart-item.model";
 function getCartIndex(stateCart: Cart, productId: number): number {
   const cart: Cart = JSON.parse(JSON.stringify(stateCart))
     const cartItems = cart.cartItems
-    const cartItemIndex = cartItems.findIndex( item => item.product.id === productId)
+    return cartItems.findIndex( item => item.product.id === productId)
+}
 
-    return cartItemIndex;
+function getCartItem(stateCart: Cart, productId: number): CartItem{
+  const cartItemIndex = getCartIndex(stateCart, productId)
+  
+  return stateCart.cartItems[cartItemIndex]
 }
 export const cartReducer = createReducer(
   cartInitialState,
@@ -66,6 +70,19 @@ export const cartReducer = createReducer(
     return {
       ...state,
       cart: { ...cart }
+    }
+  }),
+
+  on(cartActions.removeCartItem, (state, action) => {
+    const cart = JSON.parse(JSON.stringify(state.cart)) as Cart
+    const cartItem = getCartItem(cart, action.productId)
+    return {
+      ...state,
+      cart: {
+        totalPrice: cart.totalPrice - cartItem.totalPriceProduct,
+        totalProductsQty: cart.totalProductsQty - cartItem.totalProductQty,
+        cartItems: cart.cartItems.filter( item => item.product.id !== action.productId)
+      }
     }
   })
 )

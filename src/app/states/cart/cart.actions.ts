@@ -18,9 +18,15 @@ const decrementProductOnCartItem = createAction(
   '[CartItem] Decrement Product Quantity on CartItem',
   props<{ productId:number }>()
 )
+
+const removeCartItem = createAction(
+  '[CartItem] Remove CartItem',
+  props<{ productId:number }>()
+)
 export const cartActions = {
   fetchCart,
   addCartItem,
   incrementProductOnCartItem,
-  decrementProductOnCartItem
+  decrementProductOnCartItem,
+  removeCartItem
 }

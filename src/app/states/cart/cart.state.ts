@@ -1,9 +1,15 @@
 import { Cart, CartState } from "../../models/cart.model";
 
 function initCart() {
-  const cartStorage = JSON.parse(localStorage.getItem('cart') ?? '');
-  const cart: Cart = cartStorage 
-    ? cartStorage 
+  const cartStorage = localStorage.getItem('cart') ?? '' 
+  let cartStorageParsed
+
+  if(cartStorage) {
+    cartStorageParsed = JSON.parse(cartStorage);
+  }
+
+  const cart: Cart = cartStorageParsed 
+    ? cartStorageParsed 
     : {
       cartItems: [],
       totalPrice: 0,
