@@ -20,3 +20,5 @@ export class CartItem {
   }
   
 }
+
+export type CartItemListType = 'cart' | 'confirm';

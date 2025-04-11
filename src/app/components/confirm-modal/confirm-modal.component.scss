@@ -1,3 +1,50 @@
+@use "variables";
+
 :host {
   display: block;
+}
+
+dialog {
+  margin: auto 0;
+  border: none;
+  border-radius: 10px 10px 0 0;
+  width: 100%;
+  max-width: 100%;
+  padding: 1.5rem;
+  
+  &::backdrop {
+    background: rgba(0, 0, 0, 0.7);
+  }
+
+  .modal-title {
+    font-size: variables.$text-lg;
+  }
+  
+}
+
+
+
+.modal-header {
+  p {
+    margin-top: 0.5rem;
+    font-size: 1.2rem;
+    color: variables.$rose500;
+    
+  }
+
+  h3 {
+    font-size: variables.$text-lg;
+    color: variables.$rose900;
+    line-height: 1.25;
+  }
+
+  .order-confirmed-icon {
+    margin-top: 1rem;
+  }
+}
+
+.modal-content {
+  background-color: variables.$rose50;
+  padding: 0.5rem 1.5rem;
+  margin-top: 2rem;
 }

@@ -1,17 +1,16 @@
 import { Component, inject, OnInit, signal } from '@angular/core';
-import { CartItemComponent } from './cart-item/cart-item.component';
 import { EmptyCardComponent } from './empty-card/empty-card.component';
 import { Cart } from '../../models/cart.model';
 import { Store } from '@ngrx/store';
 import { getCart } from '../../states/cart/cart.selectors';
 import { CartItemListComponent } from './cart-item-list/cart-item-list.component';
 import { CurrencyPipe } from '@angular/common';
+import { modalActions } from '../../states/modal/modal.actions';
 
 @Component({
   selector: 'app-cart',
   standalone: true,
   imports: [
-  CartItemComponent,
     EmptyCardComponent,
     CartItemListComponent,
     CurrencyPipe
@@ -27,5 +26,9 @@ export class CartComponent implements OnInit {
     this.store.select(getCart).subscribe(cartState => {
       this.cart.set(cartState) 
     })
+  }
+
+  openModal(){
+    this.store.dispatch(modalActions.openConfirmModal());
   }
 }

@@ -1,5 +1,9 @@
 
+@if (isModalOpen()) {
+  <app-confirm-modal />
+}
+
 <main class="container">
   <router-outlet></router-outlet>
 </main>
-<ng-template #modal></ng-template>
+

@@ -1,6 +1,7 @@
 import { Component, input } from '@angular/core';
 import { Cart } from '../../../models/cart.model';
 import { CartItemComponent } from '../cart-item/cart-item.component';
+import { CartItemListType } from '../../../models/cart-item.model';
 
 @Component({
   selector: 'app-cart-item-list',
@@ -13,4 +14,5 @@ import { CartItemComponent } from '../cart-item/cart-item.component';
 })
 export class CartItemListComponent {
   cart = input.required<Cart>();
+  type = input<CartItemListType>("cart");
 }

@@ -1,3 +1,8 @@
+@if(type() === "confirm") {
+  <figure>
+    <img [src]="cartItem()?.product?.image?.mobile" [alt]="cartItem()?.product?.name">
+  </figure>
+}
 <div class="cart-item--info">
   <strong class="prodcut--name">{{ cartItem()?.product?.name }}</strong>
   <div class="product--values">
@@ -6,8 +11,13 @@
     <strong class="product--total-price">{{ cartItem()?.totalPriceProduct | currency }}</strong>
   </div>
 </div>
-<button class="remove-product-button" (click)="removeItem()">
-  <i class="material-symbols-outlined">
-    cancel
-  </i>
-</button>
+@if(type() === "cart") {
+  <button class="remove-product-button" (click)="removeItem()">
+    <i class="material-symbols-outlined">
+      cancel
+    </i>
+  </button>
+} @else {
+  <strong class="product--total-price-right">{{ cartItem()?.totalPriceProduct | currency }}</strong>
+}
+

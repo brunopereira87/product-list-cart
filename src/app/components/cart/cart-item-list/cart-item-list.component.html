@@ -1,4 +1,4 @@
 
 @for(cartItem of cart().cartItems; track cartItem.product.id) {
-  <app-cart-item [cartItem]="cartItem"></app-cart-item>
+  <app-cart-item [cartItem]="cartItem" [type]="type()"></app-cart-item>
 }

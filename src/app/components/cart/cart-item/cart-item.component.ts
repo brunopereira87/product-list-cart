@@ -1,5 +1,5 @@
 import { Component, inject, input } from '@angular/core';
-import { CartItem } from '../../../models/cart-item.model';
+import { CartItem, CartItemListType } from '../../../models/cart-item.model';
 import { CurrencyPipe } from '@angular/common';
 import { Store } from '@ngrx/store';
 import { cartActions } from '../../../states/cart/cart.actions';
@@ -14,13 +14,15 @@ import { cartActions } from '../../../states/cart/cart.actions';
   styleUrl: './cart-item.component.scss'
 })
 export class CartItemComponent {
-  cartItem = input<CartItem>()
-  store = inject(Store)
+  cartItem = input<CartItem>();
+  store = inject(Store);
+  type = input<CartItemListType>("cart");
+  
   removeItem(){
     const item = this.cartItem();
     
     if(item){
-      this.store.dispatch(cartActions.removeCartItem({ productId: item.product.id}))
+      this.store.dispatch(cartActions.removeCartItem({ productId: item.product.id}));
     }
   }
 }

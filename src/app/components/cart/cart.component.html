@@ -12,7 +12,9 @@
       This is a <strong>carbon-neutral</strong> delivery
     </p>
   </div>
-  <button class="confirm-order-button btn btn--accent text--md text--semibold">Confirm Order</button>
+  <button 
+    class="confirm-order-button btn btn--accent text--md text--semibold"
+    (click)="openModal()">Confirm Order</button>
 } @else {
   <app-empty-card></app-empty-card>
 }
