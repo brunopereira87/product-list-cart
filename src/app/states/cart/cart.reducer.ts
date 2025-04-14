@@ -1,5 +1,5 @@
 import { createReducer, on } from "@ngrx/store";
-import { cartInitialState } from "./cart.state";
+import { cartInitialState, defaultCartState } from "./cart.state";
 import { cartActions } from "./cart.actions";
 import { Cart } from "../../models/cart.model";
 import { CartItem } from "../../models/cart-item.model";
@@ -17,6 +17,12 @@ function getCartItem(stateCart: Cart, productId: number): CartItem{
 }
 export const cartReducer = createReducer(
   cartInitialState,
+  on(cartActions.resetCart, (state) => {
+    return {
+      ...state,
+      cart: defaultCartState
+    }
+  }),
   on(cartActions.addCartItem, (state, action) => {
     const cart = state.cart
     return {

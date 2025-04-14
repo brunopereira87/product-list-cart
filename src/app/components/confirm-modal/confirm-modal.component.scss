@@ -5,13 +5,12 @@
 }
 
 dialog {
-  margin: auto 0;
+  margin: auto;
+  margin-bottom: 0;
   border: none;
-  border-radius: 10px 10px 0 0;
-  width: 100%;
+  width: 615px;
   max-width: 100%;
-  padding: 1.5rem;
-  
+  border-radius: 10px 10px 0 0;
   &::backdrop {
     background: rgba(0, 0, 0, 0.7);
   }
@@ -22,9 +21,13 @@ dialog {
   
 }
 
-
+#modal-container {
+  width: 100%;
+  padding: 1.5rem;
+}
 
 .modal-header {
+  margin-top: 0.5rem;
   p {
     margin-top: 0.5rem;
     font-size: 1.2rem;
@@ -36,6 +39,7 @@ dialog {
     font-size: variables.$text-lg;
     color: variables.$rose900;
     line-height: 1.25;
+    margin-top: 1rem;
   }
 
   .order-confirmed-icon {
@@ -43,8 +47,25 @@ dialog {
   }
 }
 
-.modal-content {
+.cart-list-confirm {
   background-color: variables.$rose50;
   padding: 0.5rem 1.5rem;
   margin-top: 2rem;
+  border-radius: 10px;
+}
+
+.start-new-order-button {
+  margin-top: 2rem;
+  width: 100%;
+  transition: all 0.5s;
+  &:hover {
+    background-color: darken(variables.$brown1, 20%);    
+  }
+}
+
+@media(min-width: variables.$tablet-width) {
+  dialog {
+    margin-bottom: auto;
+    border-radius: 10px;
+  }
 }

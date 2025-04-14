@@ -2,13 +2,20 @@
 
 <dialog #dialog>
   <!-- <button class="close-modal">X</button> -->
+ <div id="modal-container" (clickOutside)="closeModal()">
   <div class="modal-header">
     <img class="order-confirmed-icon" src="assets/images/icon-order-confirmed.svg" alt="order confirmed icon" />
     <h3 class="modal-title">Order Confirmed</h3>
     <p>We hope you enjoy your food!</p>
   </div>
 
-  <div class="modal-content">
-    <app-cart-item-list [cart]="cart()" type="confirm" class="cart-list-confirm"></app-cart-item-list>
+  <div class="modal-content cart-list-confirm">
+    <app-cart-item-list [cart]="cart()" type="confirm"></app-cart-item-list>
   </div>
+
+  <button 
+    class="start-new-order-button btn btn--accent text--md text--semibold"
+    (click)="onStartNewOrder()">Start New Order
+  </button>
+ </div>
 </dialog>

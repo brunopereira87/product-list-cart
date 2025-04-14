@@ -10,14 +10,16 @@ function initCart() {
 
   const cart: Cart = cartStorageParsed 
     ? cartStorageParsed 
-    : {
-      cartItems: [],
-      totalPrice: 0,
-      totalProductsQty: 0
-    }
+    : defaultCartState
 
   return cart;
 
+}
+
+export const defaultCartState =  {
+  cartItems: [],
+  totalPrice: 0,
+  totalProductsQty: 0
 }
 export const cartInitialState: CartState = {
   cart: initCart()

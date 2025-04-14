@@ -42,9 +42,15 @@
 .product--total-price-right {
   margin-left: auto;
 }
+
+.product--total-price-right {
+  color: variables.$rose900;
+  font-weight: 600;
+  font-size: 1.1rem;
+}
 img {
   width: 50px;
   height: 50px;
   object-fit: cover;
-  
+  border-radius: 5px;
 }

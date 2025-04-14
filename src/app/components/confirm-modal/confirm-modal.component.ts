@@ -5,11 +5,13 @@ import { modalActions } from '../../states/modal/modal.actions';
 import { Cart } from '../../models/cart.model';
 import { getCart } from '../../states/cart/cart.selectors';
 import { CartItemListComponent } from '../cart/cart-item-list/cart-item-list.component';
+import { ClickOutsideDirective } from '../../directives/click-outside.directive';
+import { cartActions } from '../../states/cart/cart.actions';
 
 @Component({
   selector: 'app-confirm-modal',
   standalone: true,
-  imports: [CartItemListComponent],
+  imports: [CartItemListComponent, ClickOutsideDirective],
   templateUrl: './confirm-modal.component.html',
   styleUrl: './confirm-modal.component.scss'
 })
@@ -27,8 +29,19 @@ private dialogEl = viewChild.required<ElementRef<HTMLDialogElement>>('dialog');
   }
 
   ngOnInit(): void {
-      this.store.select(getCart).subscribe(cartState => {
-        this.cart.set(cartState) 
-      })
-    }
+    this.store.select(getCart).subscribe(cartState => {
+      this.cart.set(cartState) 
+    })
+  }
+
+
+  closeModal() {
+    console.log('close modal');
+    this.store.dispatch(modalActions.closeConfirmModal());
+  }
+
+  onStartNewOrder() {
+    this.store.dispatch(cartActions.resetCart())
+    this.store.dispatch(modalActions.closeConfirmModal());
+  }
 }

@@ -14,5 +14,7 @@ export class CartService {
     localStorage.setItem('cart', JSON.stringify(cart));
   }
 
-  
+  async deleteCartStorage(){
+    localStorage.removeItem('cart');
+  }
 }

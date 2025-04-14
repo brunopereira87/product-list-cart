@@ -11,15 +11,32 @@ const {
   addCartItem, 
   incrementProductOnCartItem, 
   decrementProductOnCartItem,
-  removeCartItem
+  removeCartItem,
+  resetCart
 } = cartActions;
 
 export const saveCartToStorageEffect = createEffect(
   (actions$ = inject(Actions), store = inject(Store), cartService = inject(CartService)) => {
     return actions$.pipe(
-      ofType(addCartItem, incrementProductOnCartItem, decrementProductOnCartItem, removeCartItem),
+      ofType(
+        addCartItem, 
+        incrementProductOnCartItem, 
+        decrementProductOnCartItem,
+        removeCartItem,
+
+      ),
       withLatestFrom(store.select(getCart)),
       switchMap(([actions, cart]) => from(cartService.saveCartStorage(cart)))
+    )
+  }, 
+  { dispatch: false, functional: true },
+)
+
+export const deleteCartStorageEffect = createEffect(
+  (actions$ = inject(Actions), cartService = inject(CartService)) => {
+    return actions$.pipe(
+      ofType(cartActions.resetCart),
+      switchMap(() => from(cartService.deleteCartStorage()))
     )
   }, 
   { dispatch: false, functional: true },
